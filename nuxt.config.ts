@@ -12,5 +12,5 @@ export default defineNuxtConfig({
       },
     },
   },
-  modules: ['@nuxtjs/storybook'],
+  modules: ['@pinia/nuxt'],
 })

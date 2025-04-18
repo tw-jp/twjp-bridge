@@ -1,12 +1,15 @@
+<script setup lang="ts">
+</script>
+
 <template>
-  <div>
-    <NuxtRouteAnnouncer />
-    <NuxtWelcome />
+  <div class="main">
+    <ModalLogin />
+    <NuxtPage />
   </div>
 </template>
 
-<style lang="scss">
-h1 {
-  @include flex();
+<style scoped>
+.main {
+  width: 100%;
 }
 </style>
