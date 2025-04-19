@@ -2,6 +2,10 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
+  modules: ['@pinia/nuxt'],
+  app: {
+    baseURL: '/twjp-bridge/',
+  },
   css: ['@/assets/styles/reset.scss'],
   vite: {
     css: {
@@ -12,5 +16,4 @@ export default defineNuxtConfig({
       },
     },
   },
-  modules: ['@pinia/nuxt'],
 })
