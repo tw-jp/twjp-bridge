@@ -30,8 +30,11 @@ export default antfu({
 
   rules: {
     'vue/attribute-hyphenation': 'off',
-    'ts/consistent-type-definitions': 'off',
     'vue/html-self-closing': 'off',
-    // 'antfu/top-level-function': false,
+    'ts/consistent-type-definitions': 'off',
+    'ts/no-unused-expressions': 'off',
+    'ts/explicit-function-return-type': 'off',
+    'style/brace-style': 'off',
+    'no-unneeded-ternary': 'off',
   },
 })

@@ -14,6 +14,9 @@ useSeoMeta({
     <button @click="() => useModal('login')">
       open!!
     </button>
+    <NuxtLink to="/login">
+      前往登入
+    </NuxtLink>
   </div>
 </template>
 
