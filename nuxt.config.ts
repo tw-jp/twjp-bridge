@@ -6,6 +6,11 @@ export default defineNuxtConfig({
   supabase: {
     redirect: false,
   },
+  runtimeConfig: {
+    public: {
+      NUXT_PUBLIC_BASE_URL: process.env.NUXT_DOMAIN
+    }
+  },
   css: ['@/assets/styles/reset.scss'],
   vite: {
     css: {
