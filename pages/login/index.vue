@@ -1,20 +1,19 @@
 <script setup lang="ts">
 const supabase = useSupabaseClient()
-
-const url = import.meta.env.VITE_SUPABASE_REDIRECT_URL
-console.log(url)
+const config = useRuntimeConfig()
 
 async function loginWithGoogle() {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
     options: {
-      redirectTo: `${import.meta.env.VITE_SUPABASE_REDIRECT_URL}/login/redirect`, 
+      redirectTo: `${config.public.NUXT_PUBLIC_BASE_URL}/login/redirect`, 
     },
   })
   console.log(data)
 
-  if (error)
+  if (error) {
     console.error('登入失敗:', error)
+  }
 }
 
 async function logout() {
