@@ -1,11 +1,14 @@
 <script setup lang="ts">
 const supabase = useSupabaseClient()
 
+const url = import.meta.env.VITE_SUPABASE_REDIRECT_URL
+console.log(url)
+
 async function loginWithGoogle() {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
     options: {
-      redirectTo: 'http://localhost:3000/login/redirect', // 登入成功後跳轉到這裡
+      redirectTo: `${import.meta.env.VITE_SUPABASE_REDIRECT_URL}/login/redirect`, 
     },
   })
   console.log(data)
