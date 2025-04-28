@@ -9,8 +9,6 @@ async function loginWithGoogle() {
       redirectTo: `${config.public.NUXT_PUBLIC_BASE_URL}/login/redirect`, 
     },
   })
-  console.log(data)
-
   if (error) {
     console.error('登入失敗:', error)
   }
