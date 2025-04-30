@@ -10,53 +10,37 @@ onMounted(() => {
 </script>
 
 <template>
-  <dialog ref="dialogNode" class="dialog" @click.self="dialogNode!.close()">
-    <div class="dialog__inner">
+  <dialog
+    ref="dialogNode"
+    class="border-none p-0 outline-none rounded-xl transition-all duration-400 max-w-20vw shadow-lg animate-close"
+    @click.self="dialogNode!.close()"
+  >
+    <div class="flex flex-col p-2vw w-full">
       hello world
     </div>
   </dialog>
 </template>
 
-<style lang="scss" scoped>
-.dialog {
-  border: none;
-  padding: 0;
-  outline: none;
-  border-radius: 12px;
-  transition: display 0.4s allow-discrete, overlay 0.4s allow-discrete;
-  animation: close 0.4s forwards;
-  max-width: 20vw;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
-  &[open] {
-    animation: open 0.4s forwards;
-  }
-  &::backdrop {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-
-  &__inner {
-    @include flex();
-    flex-direction: column;
-    padding: 2vw;
-    width: 100%;
-  }
-}
-
+<style>
 @keyframes open {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes close {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+dialog[open] {
+  animation: open 0.4s forwards;
+}
+
+dialog:not([open]) {
+  animation: close 0.4s forwards;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 </style>
