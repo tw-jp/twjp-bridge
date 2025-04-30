@@ -6,7 +6,7 @@ async function loginWithGoogle() {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
     options: {
-      redirectTo: `${config.public.NUXT_PUBLIC_BASE_URL}/login/redirect`, 
+      redirectTo: `${config.public.NUXT_PUBLIC_BASE_URL}/login/redirect`,
     },
   })
   if (error) {
