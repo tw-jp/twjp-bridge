@@ -9,7 +9,7 @@ onBeforeMount(async () => {
 </script>
 
 <template>
-  <div class="main">
+  <div>
     <ModalLogin />
     <NuxtPage />
   </div>

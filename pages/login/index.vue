@@ -3,7 +3,7 @@ const supabase = useSupabaseClient()
 const config = useRuntimeConfig()
 
 async function loginWithGoogle() {
-  const { data, error } = await supabase.auth.signInWithOAuth({
+  const { error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
     options: {
       redirectTo: `${config.public.NUXT_PUBLIC_BASE_URL}/login/redirect`,
@@ -16,12 +16,8 @@ async function loginWithGoogle() {
 
 async function logout() {
   const { error } = await supabase.auth.signOut()
-
   if (error) {
     console.error('登出失敗:', error.message)
-  } else {
-    console.log('已成功登出')
-  // 你可以選擇在登出後做一些其他的操作，例如重定向到登錄頁面
   }
 }
 </script>
@@ -30,6 +26,9 @@ async function logout() {
   <!-- <div class="">
     {{ response }}
   </div> -->
+  <NuxtLink to="/profile">
+    Go to Profile Page
+  </NuxtLink>
   <button @click="loginWithGoogle">
     我要登入
   </button>

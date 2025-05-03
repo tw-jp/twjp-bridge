@@ -10,7 +10,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="home">
+  <div>
     <button @click="() => useModal('login')">
       open!!
     </button>
@@ -21,8 +21,5 @@ useSeoMeta({
 </template>
 
 <style scoped lang="scss">
-.home {
-  @include size(100%, 100%);
-  background-image: linear-gradient(to bottom right, #fdfcfb, #e2d1c3);
-}
+
 </style>
