@@ -10,6 +10,7 @@ export default defineNuxtRouteMiddleware(async (_to, _from) => {
   }
 
   if (!userData.value) {
+    useNuxtApp().$toast.error('請先登入')
     return navigateTo('/login')
   }
 })

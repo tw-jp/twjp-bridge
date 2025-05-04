@@ -16,6 +16,8 @@ async function loginWithGoogle() {
 
 async function logout() {
   const { error } = await supabase.auth.signOut()
+  useNuxtApp().$toast.success('登出成功！')
+  window.location.href = '/'
   if (error) {
     console.error('登出失敗:', error.message)
   }
