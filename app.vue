@@ -1,8 +1,15 @@
 <script setup lang="ts">
+import { useProfileStore } from '@/store'
+
+const { userInit } = useProfileStore()
+
+onBeforeMount(async () => {
+  await userInit()
+})
 </script>
 
 <template>
-  <div class="main">
+  <div>
     <ModalLogin />
     <NuxtPage />
   </div>
