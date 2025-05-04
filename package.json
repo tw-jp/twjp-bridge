@@ -41,6 +41,7 @@
     "supabase": "^2.22.6",
     "unocss": "66.1.0-beta.12",
     "vite": "^6.3.1",
-    "vitest": "^3.1.1"
+    "vitest": "^3.1.1",
+    "vue3-toastify": "^0.2.8"
   }
 }
