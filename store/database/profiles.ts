@@ -53,6 +53,7 @@ export const useProfileStore = defineStore('db-profiles', () => {
         userProfile.value = await getUserProfile(session.user.id)
         userData.value = await getUserData()
         isLogin.value = true
+        console.log('userInit success')
       })
     } catch (e) {
       console.error(e)
