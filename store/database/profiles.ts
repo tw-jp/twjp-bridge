@@ -15,13 +15,18 @@ export const useProfileStore = defineStore('db-profiles', () => {
   const isLogin = ref(false)
 
   async function getUserProfile(id: string) {
-    console.log('getUserProfile', id)
-    const { data } = await supabase
-      .from('profiles')
-      .select()
-      .eq('id', id)
-      .single()
-    return data
+    try {
+      console.log('getUserProfile', id)
+      const { data } = await supabase
+        .from('profiles')
+        .select()
+        .eq('id', id)
+        .single()
+      return data
+    } catch (e) {
+      console.error(e)
+      return null
+    }
   }
 
   async function getUserData(): Promise<User | null> {
