@@ -4,8 +4,8 @@
 
 <template>
   <div class="">
-    <NuxtLink to="/profile">
+    <!-- <NuxtLink to="/profile">
       Profile Page
-    </NuxtLink>
+    </NuxtLink> -->
   </div>
 </template>
