@@ -15,6 +15,7 @@ export const useProfileStore = defineStore('db-profiles', () => {
   const isLogin = ref(false)
 
   async function getUserProfile(id: string) {
+    console.log('getUserProfile', id)
     const { data } = await supabase
       .from('profiles')
       .select()
@@ -25,6 +26,7 @@ export const useProfileStore = defineStore('db-profiles', () => {
 
   async function getUserData(): Promise<User | null> {
     try {
+      console.log('getUserData')
       if (userData.value) {
         return userData.value
       }
@@ -43,9 +45,10 @@ export const useProfileStore = defineStore('db-profiles', () => {
         console.log('session', session)
         if (!session) {
           isLogin.value = false
+          console.log('session is null')
           return
         }
-
+        console.log('session is not null')
         userSession.value = session
         userProfile.value = await getUserProfile(session.user.id)
         userData.value = await getUserData()
