@@ -1,15 +1,34 @@
 <script setup lang="ts">
 import { useProfileStore } from '@/store'
+import { storeToRefs } from 'pinia'
+
+const { userProfile } = storeToRefs(useProfileStore())
 
 const { userInit } = useProfileStore()
 
+const route = useRoute()
+const router = useRouter()
+
 onBeforeMount(async () => {
   await userInit()
+  if (route.query.code) {
+    router.replace('/')
+  }
 })
 </script>
 
 <template>
   <div>
+    <Header />
+    <div v-if="userProfile">
+      <img :src="userProfile.avatar" alt="">
+      <p>會員id: {{ userProfile.id }}</p>
+      <p>會員名稱: {{ userProfile.name }}</p>
+      <p>會員性別: {{ userProfile.sex }}</p>
+      <p>會員介紹: {{ userProfile.introduce }}</p>
+      <p>會員來源: {{ userProfile.from }}</p>
+    </div>
+
     <ModalLogin />
     <NuxtPage />
   </div>

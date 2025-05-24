@@ -1,8 +1,22 @@
 <script setup lang="ts">
-import { useModalStore } from '../../store'
+import { useModalStore } from '@/store'
+
+const supabase = useSupabaseClient()
 
 const { registerModal } = useModalStore()
 const dialogNode = ref<null | HTMLDialogElement>(null)
+
+async function loginWithGoogle() {
+  const { error } = await supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options: {
+      redirectTo: '/',
+    },
+  })
+  if (error) {
+    console.error('登入失敗:', error)
+  }
+}
 
 onMounted(() => {
   registerModal('login', dialogNode.value!)
@@ -16,7 +30,9 @@ onMounted(() => {
     @click.self="dialogNode!.close()"
   >
     <div class="flex flex-col p-2vw w-full">
-      hello world
+      <button @click="loginWithGoogle">
+        Google Login
+      </button>
     </div>
   </dialog>
 </template>
