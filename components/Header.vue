@@ -15,7 +15,10 @@ async function logout() {
     return
   }
 
-  useNuxtApp().$toast.success('登出成功！即將跳轉')
+  useNuxtApp().$toast.success('登出成功！即將跳轉', {
+    autoClose: 5000,
+    position: 'bottom-right',
+  })
   setTimeout(() => {
     window.location.href = '/'
   }, 5000)

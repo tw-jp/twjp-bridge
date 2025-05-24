@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useModalStore } from '@/store'
 
+const config = useRuntimeConfig()
 const supabase = useSupabaseClient()
 
 const { registerModal } = useModalStore()
@@ -10,7 +11,7 @@ async function loginWithGoogle() {
   const { error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
     options: {
-      redirectTo: `${window.location.origin}/redirect`,
+      redirectTo: `${config.public.NUXT_PUBLIC_BASE_URL}/redirect`,
     },
   })
   if (error) {
