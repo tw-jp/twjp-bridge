@@ -146,7 +146,7 @@ async function updateUserProfile() {
   </ClientOnly>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .profile-container {
   max-width: 800px;
   margin: 0 auto;
