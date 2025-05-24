@@ -6,14 +6,8 @@ const { userProfile } = storeToRefs(useProfileStore())
 
 const { userInit } = useProfileStore()
 
-const route = useRoute()
-const router = useRouter()
-
 onBeforeMount(async () => {
   await userInit()
-  if (route.query.code) {
-    router.replace('/')
-  }
 })
 </script>
 

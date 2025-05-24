@@ -28,17 +28,19 @@ async function logout() {
       <div class="logo">
         LOGO
       </div>
-      <div v-if="isApiLoading">
-        loading....
-      </div>
-      <div v-else>
-        <button v-if="!isLogin" @click="() => useModal('login')">
-          登入
-        </button>
-        <button v-else @click="logout">
-          登出
-        </button>
-      </div>
+      <ClientOnly>
+        <div v-if="isApiLoading">
+          loading....
+        </div>
+        <div v-else>
+          <button v-if="!isLogin" @click="() => useModal('login')">
+            登入
+          </button>
+          <button v-else @click="logout">
+            登出
+          </button>
+        </div>
+      </ClientOnly>
     </div>
   </header>
 </template>
