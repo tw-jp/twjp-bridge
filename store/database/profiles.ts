@@ -17,12 +17,14 @@ export const useProfileStore = defineStore('db-profiles', () => {
   async function getUserProfile(id: string) {
     try {
       console.warn('getUserProfile called with id:', id)
+      console.log('supabase', supabase)
       const { data, error } = await supabase
         .from('profiles')
         .select()
         .eq('id', id)
         .single()
-
+      console.log('data', data)
+      console.log('error', error)
       if (error) {
         console.error('Supabase error in getUserProfile:', error)
         return null
