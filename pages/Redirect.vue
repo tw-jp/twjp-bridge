@@ -2,14 +2,14 @@
 const router = useRouter()
 
 onBeforeMount(() => {
-  router.replace('/')
+  // router.replace('/')
 })
 </script>
 
 <template>
   <div class="">
-    <!-- <NuxtLink to="/profile">
-      Profile Page
-    </NuxtLink> -->
+    <NuxtLink to="/">
+      Home Page
+    </NuxtLink>
   </div>
 </template>
