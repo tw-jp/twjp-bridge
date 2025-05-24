@@ -8,10 +8,6 @@ const { isLogin, isApiLoading } = storeToRefs(useProfileStore())
 const { useModal } = useModalStore()
 
 async function logout() {
-  if (!process.client) {
-    return
-  }
-
   const { error } = await supabase.auth.signOut()
 
   if (error) {
