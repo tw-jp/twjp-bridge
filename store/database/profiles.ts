@@ -39,6 +39,8 @@ export const useProfileStore = defineStore('db-profiles', () => {
   async function userInit() {
     try {
       supabase.auth.onAuthStateChange(async (_event, session) => {
+        console.log('event', _event)
+        console.log('session', session)
         if (!session) {
           isLogin.value = false
           return
