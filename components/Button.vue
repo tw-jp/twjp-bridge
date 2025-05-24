@@ -10,7 +10,7 @@ defineProps<{
   </button>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 button {
   padding: 16px 20px;
 }
