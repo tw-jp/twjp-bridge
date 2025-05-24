@@ -9,9 +9,6 @@ const dialogNode = ref<null | HTMLDialogElement>(null)
 async function loginWithGoogle() {
   const { error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
-    options: {
-      redirectTo: '/',
-    },
   })
   if (error) {
     console.error('登入失敗:', error)
